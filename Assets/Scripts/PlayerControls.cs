@@ -7,6 +7,7 @@ public class PlayerControls : MonoBehaviour
   [SerializeField] float controlSpeed = 20f;
   [SerializeField] float xRange = 8f;
   [SerializeField] float yRange = 8f;
+  [SerializeField] GameObject[] guns;
 
   [SerializeField] float positionPitchFactor = -2f;
   [SerializeField] float positionYawFactor = 2.2f;
@@ -25,6 +26,7 @@ public class PlayerControls : MonoBehaviour
   {
     ProcessTranslation();
     ProcessRotation();
+    ProcessFiring();
   }
 
   void ProcessRotation()
@@ -53,5 +55,33 @@ public class PlayerControls : MonoBehaviour
     float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
 
     transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+  }
+
+  void ProcessFiring()
+  {
+    if (Input.GetButton("Fire1"))
+    {
+      ActivateGuns();
+    }
+    else
+    {
+      DeactivateGuns();
+    }
+  }
+
+  void ActivateGuns()
+  {
+    foreach (GameObject gun in guns)
+    {
+      gun.SetActive(true);
+    }
+  }
+
+  void DeactivateGuns()
+  {
+    foreach (GameObject gun in guns)
+    {
+      gun.SetActive(false);
+    }
   }
 }

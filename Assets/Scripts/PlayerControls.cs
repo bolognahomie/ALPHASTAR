@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    [SerializeField] float controlSpeed = 10f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  [SerializeField] float controlSpeed = 10f;
+  [SerializeField] float xRange = 8f;
+  [SerializeField] float yRange = 8f;
+  void Start()
+  {
 
-    // Update is called once per frame
-    void Update()
-    {
-        float xThrow = Input.GetAxis("Horizontal");
-        float yThrow = Input.GetAxis("Vertical");
-        float xOffset = xThrow * Time.deltaTime * controlSpeed;
-        float yOffset = yThrow * Time.deltaTime * controlSpeed;
+  }
 
-        float newXPos = transform.localPosition.x + xOffset;
-        float newYPos = transform.localPosition.y + yOffset;
+  // Update is called once per frame
+  void Update()
+  {
+    float xThrow = Input.GetAxis("Horizontal");
+    float yThrow = Input.GetAxis("Vertical");
 
-        transform.localPosition = new Vector3 (newXPos, newYPos, transform.localPosition.z);
-    }
+    float xOffset = xThrow * Time.deltaTime * controlSpeed;
+    float rawXPos = transform.localPosition.x + xOffset;
+    float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
+
+    float yOffset = yThrow * Time.deltaTime * controlSpeed;
+    float rawYPos = transform.localPosition.y + yOffset;
+    float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
+
+    transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+  }
 }
- 

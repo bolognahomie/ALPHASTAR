@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1420537632784140701}
   - component: {fileID: 1427912648607397611}
   - component: {fileID: 1438653111903168877}
+  - component: {fileID: 4170541408496920571}
   m_Layer: 0
   m_Name: Fuselage
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4170541408496920571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414132174896208153}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.92702, y: 3.9672694, z: 14.840891}
+  m_Center: {x: -0.000030477333, y: 1.1210822, z: 2.4205136}
 --- !u!1 &1414162432006170659
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +107,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1416737805208477661}
   - component: {fileID: 4393781274409312707}
+  - component: {fileID: 7584580916309334311}
+  - component: {fileID: 601002530724710299}
   m_Layer: 0
   m_Name: Fighter
   m_TagString: Untagged
@@ -131,10 +147,36 @@ MonoBehaviour:
   controlSpeed: 20
   xRange: 8
   yRange: 8
+  guns: []
   positionPitchFactor: -2
   positionYawFactor: 2.2
   controlPitchFactor: -10
   controlRollFactor: -15
+--- !u!114 &7584580916309334311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414162432006170659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ac69f39a87e8c408f13941cd469d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &601002530724710299
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414162432006170659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1414163749674964281
 GameObject:
   m_ObjectHideFlags: 0

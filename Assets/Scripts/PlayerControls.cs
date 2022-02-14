@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
+  [Header("General Setup Settings")]
   [SerializeField] float controlSpeed = 20f;
   [SerializeField] float xRange = 8f;
   [SerializeField] float yRange = 8f;
@@ -65,16 +66,16 @@ public class PlayerControls : MonoBehaviour
     }
     else
     {
-     ShootGuns(false);
+      ShootGuns(false);
     }
   }
 
-  void ShootGuns(bool isShooting)
+  void ShootGuns(bool isActive)
   {
     foreach (GameObject gun in guns)
     {
-    var emissionModule = gun.GetComponent<ParticleSystem>().emission;
-    emissionModule.enabled = isShooting;
+      var emissionModule = gun.GetComponent<ParticleSystem>().emission;
+      emissionModule.enabled = isActive;
     }
   }
 }
